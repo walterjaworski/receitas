@@ -1,11 +1,11 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Home } from "../pages/home"
-import { Favorites } from "../pages/favorites"
+import { Ionicons } from '@expo/vector-icons';
+import { StackRoutes } from './stackRoutes';
+// import { Home } from '../pages/home';
+import { Favorites } from '../pages/favorites';
 
-import { Ionicons } from "@expo/vector-icons"
-
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 export function Routes() {
   return (
@@ -14,39 +14,39 @@ export function Routes() {
         headerShown: false,
         tabBarHideOnKeyboard: true,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: "#121212",
+        tabBarActiveTintColor: '#121212',
         tabBarStyle: {
-          backgroundColor: "#fff",
-          borderTopWidth: 0
-        }
+          backgroundColor: '#fff',
+          borderTopWidth: 0,
+        },
       }}
     >
       <Tab.Screen
         name="HomeTab"
-        component={Home}
+        component={StackRoutes}
         options={{
-          tabBarIcon: ({color, size, focused}) => {
-            if(focused) {
-              return <Ionicons name="home" color="#000" size={size} />
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="home" color="#000" size={size} />;
             }
 
-            return <Ionicons name="home-outline" color={color} size={size} />
-          }
+            return <Ionicons name="home-outline" color={color} size={size} />;
+          },
         }}
       />
       <Tab.Screen
         name="FavoritesTab"
         component={Favorites}
         options={{
-          tabBarIcon: ({color, size, focused}) => {
-            if(focused) {
-              return <Ionicons name="heart" color="#ff4141" size={size} />
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="heart" color="#ff4141" size={size} />;
             }
 
-            return <Ionicons name="heart-outline" color={color} size={size} />
-          }
+            return <Ionicons name="heart-outline" color={color} size={size} />;
+          },
         }}
       />
     </Tab.Navigator>
-  )
+  );
 }
